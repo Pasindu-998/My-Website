@@ -14,6 +14,7 @@
 
     <!--social media-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -180,6 +181,39 @@
         </div>
     </section>
     <!-- Video Section End -->
+<!-- Video Section Begin -->
+<section class="video-slide">
+    <div class="slideshow-container">
+        <div class="section-title center-title">
+            <h2>My Collections</h2>
+            <h1>My videos</h1>
+        </div>
+        <div class="slides">
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v1.mp4">
+            </video>
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v2.mp4">
+            </video>
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v3.mp4">
+            </video>
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v4.mp4">
+            </video>
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v5.mp4">
+            </video>
+            <video class="slide" controls style="width: 250px; height: auto;">
+                <source src="videos/v6.mp4">
+            </video>
+        </div>
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</section>
+
+
 
     <!-- Footer Section Begin -->
     <footer class="footer footer--normal spad set-bg" data-setbg="img/footer-bg.png">
@@ -245,6 +279,37 @@
     <!-- Music Plugin -->
     <script src="js/jquery.jplayer.min.js"></script>
     <script src="js/jplayerInit.js"></script>
+    <script>
+        let slideIndex = 0;
+
+function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    if (slideIndex >= slides.length) { slideIndex = 0; }
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+    // Stop all videos
+    slides.forEach(video => {
+        video.pause();
+        video.currentTime = 0; // Optional: reset to start
+    });
+
+    // Start the current video
+    slides[slideIndex].play();
+
+    document.querySelector('.slides').style.transform = `translateX(-${slideIndex * 100}%)`;
+}
+
+function plusDivs(n) {
+    slideIndex += n;
+    showSlides();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlides();
+});
+
+
+    </script>
 </body>
 
 </html>
